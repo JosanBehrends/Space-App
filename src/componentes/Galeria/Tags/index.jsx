@@ -4,7 +4,7 @@ import tags from './tags.json'
 const TagsContainer = styled.section`
     display: flex;
     align-items: center;
-    gap: 64px;
+    gap: 24px;
     margin-top: 56px;
 `
 
@@ -36,12 +36,14 @@ const Div = styled.div`
 `
 
 const Tags = () => {
-    return <TagsContainer>
+    return (
+    <TagsContainer>
         <TagTitulo>Busque por tags:</TagTitulo>
         <Div>
             {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
         </Div>
     </TagsContainer>
+    )
 }
 
 export default Tags

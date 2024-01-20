@@ -19,13 +19,13 @@ const Figure = styled.figure`
         padding: 12px;
         h3 {
             font-family: 'GandhiSansBold';
+            margin-bottom: 10px;
+            font-size: 18px;
         }
         h4 {
             flex-grow: 1;
-        }
-        h3, h4 {
             margin: 0;
-            font-size: 16px;
+            font-size: 12px;
         }
     }
 `
@@ -37,21 +37,23 @@ const Rodape = styled.footer`
 `
 
 const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
-    return (<Figure $expandida={expandida} id={`foto-${foto.id}`}>
-        <img src={foto.path} alt={foto.alt} />
-        <figcaption>
-            <h3>{foto.titulo}</h3>
-            <Rodape>
-                <h4>{foto.fonte}</h4>
-                <BotaoIcone>
-                    <img src="/icones/favorito.png" alt="Icone de favorito" />
-                </BotaoIcone>
-                {!expandida && <BotaoIcone aria-hidden={expandida} onClick={() => aoZoomSolicitado(foto)}>
-                    <img src="/icones/expandir.png" alt="Icone de expandir" />
-                </BotaoIcone>}
-            </Rodape>
-        </figcaption>
-    </Figure>)
+    return (
+        <Figure $expandida={expandida} id={`foto-${foto.id}`}>
+            <img src={foto.path} alt={foto.alt} />
+            <figcaption>
+                <h3>{foto.titulo}</h3>
+                <Rodape>
+                    <h4>Fonte: {foto.fonte}</h4>
+                    <BotaoIcone>
+                        <img src="/icones/favorito.png" alt="Icone de favorito" />
+                    </BotaoIcone>
+                    {!expandida && <BotaoIcone aria-hidden={expandida} onClick={() => aoZoomSolicitado(foto)}>
+                        <img src="/icones/expandir.png" alt="Icone de expandir" />
+                    </BotaoIcone>}
+                </Rodape>
+            </figcaption>
+        </Figure>
+    )
 }
 
 export default Imagem
